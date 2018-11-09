@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp3
@@ -21,8 +22,10 @@ namespace ConsoleApp3
             Thread dataHandlerThread = new Thread(() =>
             hdc.SubscribeToEvent(server));
             dataHandlerThread.Start();
+            Thread http = new Thread(() => httpClient.SimpleListenerExample());
+            http.Start();
 
-            while(true)
+            while (true)
             {
                 Thread.Sleep(100);
             }

@@ -13,7 +13,7 @@ namespace ConsoleApp3
         public void Listen()
         {
             UdpClient listener = new UdpClient(1940);
-            IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse("192.168.1.15"), 1940); // 123 módosítani
+            IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse("192.168.1.34"), 1940); // saját IP-t ide!
             while (true)
             {
                 byte[] data = listener.Receive(ref serverEP);

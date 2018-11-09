@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ConsoleApp3
 {
@@ -53,6 +55,8 @@ namespace ConsoleApp3
             Console.WriteLine("Received message from [{0}:{1}]:\r\n{2}",
                 args.IpAddress.ToString(), args.Port.ToString(),
                 Encoding.ASCII.GetString(args.ReceivedBytes));
+            JObject json = JObject.Parse(Encoding.ASCII.GetString(args.ReceivedBytes));
+
         }
     }
 

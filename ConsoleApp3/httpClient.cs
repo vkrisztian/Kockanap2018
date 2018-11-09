@@ -11,7 +11,7 @@ namespace ConsoleApp3
     {
         public static void SimpleListenerExample()
         {
-            string prefixes = "http://192.168.1.31:1945/lennies/";
+            string prefixes = "http://192.168.1.34:1945/lennies/";
             if (prefixes == null || prefixes.Length == 0)
                 throw new ArgumentException("prefixes");
 
@@ -31,24 +31,26 @@ namespace ConsoleApp3
                 HttpListenerResponse response = context.Response;
 
                 // Construct a response.
-                //string responseString = Calculate(matchid, player);
-                //byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
-                // Get a response stream and write the response to it.
-                //response.ContentLength64 = buffer.Length;
-                //System.IO.Stream output = response.OutputStream;
-                //output.Write(buffer, 0, buffer.Length);
-                // You must close the output stream.
-                //output.Close();
+                string responseString = Calculate();
+                byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
+                //Get a response stream and write the response to it.
+                response.ContentLength64 = buffer.Length;
+                System.IO.Stream output = response.OutputStream;
+                output.Write(buffer, 0, buffer.Length);
+                //You must close the output stream.
+                output.Close();
                 //listener.Stop();
             }
 
         }
 
-        private static string Calculate(string matchid, string player)
+        private static string Calculate()
         {
-
+            
+            //JObject json = JObject.Parse(str);
             //return HandleDataClass.cucc.merkozesek.Find(x => x.merkozesazonosito == matchid).Move(player);
-            return "";
+            return "Soiuz nerushimyj respublik svobodnykh Splotila naveki Velikaia Rus.Da zdravstvuet sozdannyj volej narodov Edinyj, moguchij Sovetskij Soiuz!";
         }
+        
     }
 }

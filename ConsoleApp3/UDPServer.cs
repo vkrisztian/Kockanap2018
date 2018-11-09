@@ -52,6 +52,7 @@ namespace ConsoleApp3
             Console.WriteLine("Received message from [{0}:{1}]:\r\n{2}",
                 args.IpAddress.ToString(), args.Port.ToString(),
                 Encoding.ASCII.GetString(args.ReceivedBytes));
+            Console.WriteLine();
         }
     }
 

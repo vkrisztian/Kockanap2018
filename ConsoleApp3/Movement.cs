@@ -3,8 +3,10 @@ namespace ConsoleApp3
 {
     public class Movement
     {
-        public Movement()
-        {
-        }
+        public double MoveX { get; set; }
+
+        public double MoveY { get; set; }
+
+        public double AttackThis { get; set; }
     }
 }

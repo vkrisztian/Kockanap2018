@@ -56,6 +56,8 @@
     <Compile Include="UDPServer.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Unit.cs" />
+    <Compile Include="Movement.cs" />
+    <Compile Include="SelectUnits.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

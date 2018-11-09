@@ -33,13 +33,13 @@ namespace ConsoleApp3
                 // Construct a response.
                 string responseString = Calculate();
                 byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
-                //Get a response stream and write the response to it.
+                // Get a response stream and write the response to it.
                 response.ContentLength64 = buffer.Length;
                 System.IO.Stream output = response.OutputStream;
                 output.Write(buffer, 0, buffer.Length);
                 //You must close the output stream.
                 output.Close();
-                //listener.Stop();
+               // listener.Stop();
             }
 
         }
@@ -49,7 +49,7 @@ namespace ConsoleApp3
             
             //JObject json = JObject.Parse(str);
             //return HandleDataClass.cucc.merkozesek.Find(x => x.merkozesazonosito == matchid).Move(player);
-            return "Soiuz nerushimyj respublik svobodnykh Splotila naveki Velikaia Rus.Da zdravstvuet sozdannyj volej narodov Edinyj, moguchij Sovetskij Soiuz!";
+            return "";
         }
         
     }

@@ -57,7 +57,14 @@ namespace ConsoleApp3
                 args.IpAddress.ToString(), args.Port.ToString(),
                 Encoding.ASCII.GetString(args.ReceivedBytes));
             Entity unit = JsonConvert.DeserializeObject<Entity>(Encoding.ASCII.GetString(args.ReceivedBytes));
-
+            if (Game.Entities.Find(x=> x.ID == unit.ID) == null)
+            {
+                Game.Entities.Add(unit);
+            }
+            else
+            {
+                Game.Update(unit);
+            }
         }
     }
 

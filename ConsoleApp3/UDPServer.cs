@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,7 @@ namespace ConsoleApp3
             Console.WriteLine("Received message from [{0}:{1}]:\r\n{2}",
                 args.IpAddress.ToString(), args.Port.ToString(),
                 Encoding.ASCII.GetString(args.ReceivedBytes));
-            JObject json = JObject.Parse(Encoding.ASCII.GetString(args.ReceivedBytes));
+            Entity unit = JsonConvert.DeserializeObject<Entity>(Encoding.ASCII.GetString(args.ReceivedBytes));
 
         }
     }

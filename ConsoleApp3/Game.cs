@@ -66,6 +66,48 @@ namespace ConsoleApp3
             }
             return back;
         }
+        public static SelectUnits PickSquad(int money)
+        {
+            SelectUnits su = new SelectUnits();
+            double cash = money;
+
+            string[] names = { "VampireLord", "Ranger", "Skeleton" , "Skeleton" , "Skeleton" };
+            double[] costs = new double[5];
+            int[] number = new int[5];
+
+           
+            ModUnit[] mu = Olvas();
+            for (int i = 0; i < names.Length ; i++)
+            {
+                for (int j = 0; j < mu.Length; j++)
+                {
+                    if (names[i]==mu[j].Name)
+                    {
+                        costs[i] = mu[j].Price;
+                    }                    
+                }         
+            }
+            number[0] = (money / 2 )/ (int)costs[0]; // VampireLord
+            money /= 2;
+            number[1] = (money / 2) / (int)costs[1]; // Ranger
+            money /= 2;
+            int skeletons = (money) / (int)costs[2];
+
+            number[2] = skeletons - 2*(skeletons/3);
+            skeletons -= number[2]*(int)costs[2];
+
+            number[3] = skeletons /2;
+            skeletons /= 2;
+
+            number[4] = skeletons ;
+
+
+          
+
+            su.Names = names;
+            su.Numbers = number;
+            return su;
+        }
 
        
     }

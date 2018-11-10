@@ -72,19 +72,8 @@ namespace ConsoleApp3
         }
         private static string CalculateSquad(int amount)
         {
-            SelectUnits su = new SelectUnits();
-            su.Names[0] = "Skeleton";
-            su.Names[1] = "VampireLord";
-            su.Names[2] = "PowerLich";
-            su.Names[3] = "BoneDragon";
-            su.Names[4] = "Peasant";
 
-            su.Numbers[0] = 80;
-            su.Numbers[1] = 11;
-            su.Numbers[2] = 12;
-            su.Numbers[3] = 13;
-            su.Numbers[4] = 14;
-
+            var su = Game.PickSquad(amount);
             var res = JsonConvert.SerializeObject(su);
             return res;
 

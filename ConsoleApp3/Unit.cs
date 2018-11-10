@@ -24,4 +24,9 @@ namespace ConsoleApp3
         public double Price { get; set; }
         public double Specials { get; set; }
     }
+    enum Special {Wide=1,Fly=2,Ray=4,Always=8,RoundAttack=16,NoMeleePenalty=32,Twice=64, Regenerates = 128, NoRetal=256,SucksBlood=512,Blast=1024};
+    public class ModUnit : Unit
+    {
+        public double Fitness { get; set; }
+    }
 }

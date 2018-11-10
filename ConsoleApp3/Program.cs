@@ -15,6 +15,7 @@ namespace ConsoleApp3
             UDPServer server = new UDPServer();
             HandleDataClass hdc = new HandleDataClass();
 
+            var xyz = Game.Olvas();
 
             Thread serverThread = new Thread(() => server.Listen());
             serverThread.Start();

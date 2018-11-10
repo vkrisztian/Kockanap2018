@@ -63,8 +63,10 @@ namespace ConsoleApp3
             string[] ours = parameters[0].Split('=');
             string[] theirs = parameters[1].Split('=');
             int id = int.Parse(parameters[2].Split('=')[1]);
+            ours = ours[1].Replace("%7C", "|").Split('|');
+            theirs = theirs[1].Replace("%7C", "|").Split('|');
             //return HandleDataClass.cucc.merkozesek.Find(x => x.merkozesazonosito == matchid).Move(player);
-            Movement move = Game.CalculateMove(id);
+            Movement move = Game.CalculateMove(id,ours,theirs);
             var res = JsonConvert.SerializeObject(move);
             return res;
         }

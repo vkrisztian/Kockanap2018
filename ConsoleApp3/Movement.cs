@@ -3,13 +3,13 @@ namespace ConsoleApp3
 {
     public class Movement
     {
-        public double MoveX { get; set; }
+        public int MoveX { get; set; }
 
-        public double MoveY { get; set; }
+        public int MoveY { get; set; }
 
-        public double? AttackThis { get; set; }
+        public int? AttackThis { get; set; }
 
-        public Movement(double x, double y, double ? attack)
+        public Movement(int x, int y, int ? attack)
         {
             this.MoveX = x;
             this.MoveY = y;

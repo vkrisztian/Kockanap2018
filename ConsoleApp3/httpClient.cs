@@ -13,7 +13,7 @@ namespace ConsoleApp3
     {
         public static void SimpleListenerExample()
         {
-            string prefixes = "http://192.168.1.31:1945/lennies/";
+            string prefixes = "http://192.168.1.34:1945/lennies/";
             if (prefixes == null || prefixes.Length == 0)
                 throw new ArgumentException("prefixes");
 

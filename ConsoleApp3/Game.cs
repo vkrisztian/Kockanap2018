@@ -167,10 +167,10 @@ namespace ConsoleApp3
             int skeletons = (money) / (int)costs[2];
 
             number[2] = skeletons - 2*(skeletons/3);
-            skeletons -= number[2]*(int)costs[2];
+            skeletons -= number[2];
 
             number[3] = skeletons /2;
-            skeletons /= 2;
+            skeletons -= number[3];
 
             number[4] = skeletons ;
 

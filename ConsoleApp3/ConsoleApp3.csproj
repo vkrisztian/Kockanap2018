@@ -49,6 +49,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="httpClient.cs" />
+    <Compile Include="MapLogic.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

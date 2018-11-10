@@ -18,6 +18,7 @@ namespace ConsoleApp3
             UdpClient listener = new UdpClient(1940);
             //1.15
             IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse("192.168.1.34"), 1940); // 123 módosítani
+            //IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse("192.168.1.34"), 1940);
             while (true)
             {
                 byte[] data = listener.Receive(ref serverEP);

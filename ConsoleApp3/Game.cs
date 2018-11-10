@@ -133,6 +133,7 @@ namespace ConsoleApp3
                     Shoot = (kezdo.ElementAt(i)[10].ToString()!="")?int.Parse(kezdo.ElementAt(i)[10].ToString()):1,
                     Price = int.Parse(kezdo.ElementAt(i)[11].ToString()),
                     Specials = 0,
+
                     Fitness = double.Parse(kezdo.ElementAt(i)[14].Replace(".",",").ToString())
                 };
 

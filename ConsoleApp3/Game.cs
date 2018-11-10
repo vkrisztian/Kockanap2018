@@ -22,18 +22,92 @@ namespace ConsoleApp3
         public static Movement CalculateMove(int id,string [] ours,string[]theirs)
         {
             Movement move = new Movement(0, 0,null);
-           
+            List<Entity> our = new List<Entity>();
+            List<Entity> their = new List<Entity>();
+            Entity ToMove = entities.Find(x => x.ID == id);
+            for (int i = 0; i < ours.Length; i++)
+            {
+                our.Add(Entities.Find(x => x.ID == int.Parse(ours[i])));
+            }
+              for (int i = 0; i < theirs.Length; i++)
+            {
+                their.Add(Entities.Find(x => x.ID == int.Parse(theirs[i])));
+            }
+            bool canKill2turns = false;
+            Entity toKill = null;
+            Entity toAttack = null;
+            if (ToMove.Unit.CanShoot)
+            {
+                double dmg = (ToMove.Unit.DmgMax + ToMove.Unit.DmgMin) / 2;
+                foreach (var item in their)
+                {
+                    if ((item.Unit.HP * item.Count) <= item.Attack)
+                    {
 
+                        if (toKill != null && toKill.Unit.Rank < item.Unit.Rank)
+                        {
+                            toKill = item;
+                        }
+                        else if (toKill == null)
+                        {
+                            toKill = item;
+                        }
+                    }
+                    else if ((item.Unit.HP * item.Count) <= item.Attack / 2)
+                    {
+                        if (toAttack == null)
+                        {
+                            canKill2turns = true;
+                            toAttack = item;
+                        }
+                        else if (toAttack.Unit.Rank < item.Unit.Rank)
+                        {
+                            toAttack = item;
+                        }
+                    }
+                    else if (item.Unit.CanShoot && !canKill2turns)
+                    {
+                        if (toAttack == null)
+                        {
+                            toAttack = item;
+                        }
+                        else if (toAttack.Unit.Rank < item.Unit.Rank)
+                        {
+                            toAttack = item;
+                        }
+                    }
+                    
+                }
+            }
+            else
+            {
+
+            }
+
+
+            if (!canKill2turns)
+            {
+                move.AttackThis = getClosestEnemy(ToMove,their);
+            }
+            if (toKill != null)
+            {
+                move.AttackThis = toKill.ID;
+            }
+            else if(toAttack != null)
+            {
+                move.AttackThis = toAttack.ID;
+            }
             return move;
         }
 
         public static ModUnit[] Olvas ()
         {
-            StreamReader sr = new StreamReader("../THIS.csv");
+            StreamReader sr = new StreamReader("../../THIS.csv");
             List<string[]> kezdo = new List<string[]>();
             while (!sr.EndOfStream)
             {
                 kezdo.Add(sr.ReadLine().Split(','));
+                
             }
             sr.Close();
             ModUnit[] back = new ModUnit[kezdo.Count];
@@ -61,6 +135,23 @@ namespace ConsoleApp3
             return back;
         }
 
-       
+        public static int getClosestEnemy(Entity our,List<Entity>their)
+        {
+            int toAttackId = 0;
+            double minDistance = double.MaxValue;
+
+            foreach (var item in their)
+            {
+                double distance = Math.Sqrt((Math.Pow((item.X - our.X), 2) + Math.Pow((item.Y - our.Y), 2)));
+                if (minDistance > distance)
+                {
+                    minDistance = distance;
+                    toAttackId = item.ID;
+                }
+            }
+
+
+            return toAttackId;
+        }
     }
 }

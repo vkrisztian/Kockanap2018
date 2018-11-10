@@ -3,7 +3,7 @@ namespace ConsoleApp3
 {
     public class Entity
     {
-        public double ID { get; set; }
+        public int ID { get; set; }
         public double Count { get; set; }
         public double CountAtStart { get; set; }
         public double LastHP { get; set; }

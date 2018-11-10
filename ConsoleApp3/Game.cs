@@ -18,10 +18,10 @@ namespace ConsoleApp3
             entityToUpdate = entity;
         }
 
-        public static Movement CalculateMove(int id)
+        public static Movement CalculateMove(int id,string [] ours,string[]theirs)
         {
-            Movement move = null;
-
+            Movement move = new Movement(0, 0,null);
+           
 
             return move;
         }

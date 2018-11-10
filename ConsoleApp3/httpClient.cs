@@ -16,7 +16,7 @@ namespace ConsoleApp3
             string prefixes = "http://192.168.1.34:1945/lennies/";
             if (prefixes == null || prefixes.Length == 0)
                 throw new ArgumentException("prefixes");
-
+            //string prefixes = "http://192.168.1.34:1945/lennies/";
             // Create a listener.
             HttpListener listener = new HttpListener();
             // Add the prefixes.

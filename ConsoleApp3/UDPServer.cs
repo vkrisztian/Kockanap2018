@@ -54,9 +54,9 @@ namespace ConsoleApp3
 
         void server_DataReceivedEvent(object sender, ReceivedDataArgs args)
         {
-            Console.WriteLine("Received message from [{0}:{1}]:\r\n{2}",
+            /*Console.WriteLine("Received message from [{0}:{1}]:\r\n{2}",
                 args.IpAddress.ToString(), args.Port.ToString(),
-                Encoding.ASCII.GetString(args.ReceivedBytes));
+                Encoding.ASCII.GetString(args.ReceivedBytes));*/
             Entity unit = JsonConvert.DeserializeObject<Entity>(Encoding.ASCII.GetString(args.ReceivedBytes));
             if (Game.Entities.Find(x=> x.ID == unit.ID) == null)
             {

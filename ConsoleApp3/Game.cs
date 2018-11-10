@@ -22,8 +22,10 @@ namespace ConsoleApp3
         public static Movement CalculateMove(int id,string [] ours,string[]theirs)
         {
             Movement move = new Movement(0, 0,null);
+           
             List<Entity> our = new List<Entity>();
             List<Entity> their = new List<Entity>();
+            
             Entity ToMove = entities.Find(x => x.ID == id);
             for (int i = 0; i < ours.Length; i++)
             {
@@ -33,6 +35,37 @@ namespace ConsoleApp3
             {
                 their.Add(Entities.Find(x => x.ID == int.Parse(theirs[i])));
             }
+            /*
+            string[,] irat = new string[11, 9];
+            for (int i = 0; i < irat.GetLength(0); i++)
+            {
+                for (int j = 0; j < irat.GetLength(1); j++)
+                {
+                    irat[i, j] = "_";
+                }
+            }
+            for (int i = 0; i < our.Count; i++)
+            {
+                if(our[i]!=null)
+                    irat[(int)our[i].X, (int)our[i].Y] = "O";
+            }
+            
+            for (int i = 0; i < their.Count; i++)
+            {
+                if (their[i] != null)
+                    irat[(int)their[i].X, (int)their[i].Y] = "X";
+            }
+            Console.Clear();
+            for (int i = 0; i < irat.GetLength(1); i++)
+            {
+                for (int j = 0; j < irat.GetLength(0); j++)
+                {
+                    
+                    Console.Write(irat[j,i]+"  ");
+                }
+                Console.Write("\n\n");
+            }*/
+            
             bool canKill2turns = false;
             Entity toKill = null;
             Entity toAttack = null;

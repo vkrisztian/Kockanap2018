@@ -7,6 +7,13 @@ namespace ConsoleApp3
 
         public double MoveY { get; set; }
 
-        public double AttackThis { get; set; }
+        public double? AttackThis { get; set; }
+
+        public Movement(double x, double y, double ? attack)
+        {
+            this.MoveX = x;
+            this.MoveY = y;
+            this.AttackThis = attack;
+        }
     }
 }

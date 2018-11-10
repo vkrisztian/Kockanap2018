@@ -17,5 +17,13 @@ namespace ConsoleApp3
             Entity entityToUpdate = entities.Find(x => x.ID == entity.ID);
             entityToUpdate = entity;
         }
+
+        public static Movement CalculateMove(int id)
+        {
+            Movement move = null;
+
+
+            return move;
+        }
     }
 }
